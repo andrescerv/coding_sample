@@ -22,7 +22,7 @@ breast.cancer.filter <- breast.cancer[,wanted.cols]
 
 interest.col <- breast.cancer.filter$radius_mean
 
-install.packages('modeest')
+# install.packages('modeest')
 library(modeest)
 
 mean(interest.col)

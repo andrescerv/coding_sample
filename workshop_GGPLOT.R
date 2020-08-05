@@ -5,7 +5,7 @@ str(mtcars)
 
 mtcars.continuos.numeric.values <- 
   data.frame(mtcars$mpg, mtcars$disp, mtcars$hp, mtcars$drat, mtcars$wt, mtcars$qsec)
-  mtcars[1, 3, 5, 6, 7]
+  mtcars[1, 3, 5, 6, 7] #??
   mtcars[1,1]
 head(mtcars.continuos.numeric.values)
 cor(mtcars.continuos.numeric.values)  
