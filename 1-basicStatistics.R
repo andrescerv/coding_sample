@@ -1,62 +1,54 @@
-getwd()
-breast.cancer <- read.csv('breast_cancer.csv')
-head(breast.cancer)
+# install.packages('modeest')
+library(modeest)
 
+# dataset
 breast.cancer <- read.csv('https://raw.githubusercontent.com/analuisaortega/BEDU-R-2020/master/Data/breast_cancer.csv')
 
-# análisis superficial del DF
+# basic analysis of dataset
 head(breast.cancer)
 names(breast.cancer)
 str(breast.cancer)
 summary(breast.cancer)
 
-# buscar valores nulos
-sum(is.na(breast.cancer$diagnosis))
-for (i in 0:ncol(breast.cancer)) {
-  print(sum(is.na(breast.cancer[,i])))
-} # ninguna columna presenta valores nulos
-
-# selecciona variables de interes
+# selecting variables of interest
 wanted.cols <- c('id','diagnosis','radius_mean','perimeter_mean','radius_worst','perimeter_worst')
 breast.cancer.filter <- breast.cancer[,wanted.cols]
-
 interest.col <- breast.cancer.filter$radius_mean
+hist(interest.col,
+     main="Breast cancer tumor radius mean",
+     xlab="mm",
+     col="darkmagenta"
+)
 
-# install.packages('modeest')
-library(modeest)
-
+# central tendency analysis
 mean(interest.col)
 median(interest.col)
-mlv(interest.col)
-
+mfv(interest.col)
 sort(interest.col)
 
-### MEDIDAS DE DISPERSIÓN
-# varianza y desviación estándar
+# measures of spread
 var(interest.col)
 sd(interest.col)
 sd(interest.col)**2 == var(interest.col)
-# rango
-max(interest.col) - min(interest.col)
+max(interest.col) - min(interest.col) # range 
 ceiling(max(interest.col) - min(interest.col))
-
-### DISTRIBUCIÓN
 quantile(interest.col)
 quantile(interest.col, c(1/3, 2/3))
 
-# Reto 2: Encontrar los cuartiles para interest.col
+# quantiles
 quantile(interest.col)
 cut(interest.col, breaks = quantile(interest.col))
-# Encontrar los deciles para interest.col
+
+# deciles
 quantile(interest.col, c(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1))
 cut(interest.col, breaks = quantile(interest.col, c(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)))
 
-seq(from = 0, to = 1, by = 0.01)
-# Encontrar los percentiles para interest.col
+# percentiles
 quantile(interest.col, seq(from = 0, to = 1, by = 0.01))
 cut(interest.col, breaks = quantile(interest.col, seq(from = 0, to = 1, by = 0.01)))
 
-# Encontrar el rango donde se concentra el 85% de los datos más chicos
+# range of the 85% smallest data
 quantile(interest.col, c(0, 0.85))
-# Encontrar el rango donde se concentra el 68% de los datos más centrales
+
+# range of the 68% most central data
 quantile(interest.col, c((0.5-0.68/2),(0.5+0.68/2)))
