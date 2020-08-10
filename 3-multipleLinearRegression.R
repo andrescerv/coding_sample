@@ -2,7 +2,7 @@ library(dplyr)
 library(ggplot2)
 library(plotly)
 
-# dataset that wil be used
+# dataset that will be used
 longley # A macroeconomic data set which provides a well-known example for a highly collinear regression.
 
 # Analyzing the dataset
