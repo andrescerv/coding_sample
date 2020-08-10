@@ -1,4 +1,3 @@
-# install.packages('modeest')
 library(modeest)
 
 # dataset
@@ -14,11 +13,6 @@ summary(breast.cancer)
 wanted.cols <- c('id','diagnosis','radius_mean','perimeter_mean','radius_worst','perimeter_worst')
 breast.cancer.filter <- breast.cancer[,wanted.cols]
 interest.col <- breast.cancer.filter$radius_mean
-hist(interest.col,
-     main="Breast cancer tumor radius mean",
-     xlab="mm",
-     col="darkmagenta"
-)
 
 # central tendency analysis
 mean(interest.col)
@@ -52,3 +46,10 @@ quantile(interest.col, c(0, 0.85))
 
 # range of the 68% most central data
 quantile(interest.col, c((0.5-0.68/2),(0.5+0.68/2)))
+
+# graph 1: histogram of breast cancer tumor radius mean
+hist(interest.col,
+     main="Breast cancer tumor radius mean",
+     xlab="mm",
+     col="darkmagenta"
+)

@@ -12,7 +12,7 @@ summary(longley)
 dim(longley)
 cor(longley)
 
-# variables used in the linear model
+# linear regression model
 longley %>%
   select(GNP, Employed)
 

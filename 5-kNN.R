@@ -1,4 +1,3 @@
-# install.packages('class')
 library(class)
 
 # the dataset that will be manipulated:
