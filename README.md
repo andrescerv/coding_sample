@@ -1,3 +1,5 @@
+Contains 5 scripts in R showing some statistical and visualization methods.
+
 # This code sample consists of five R documents:
 
 1. [basicStatistics](https://github.com/andrescerv/coding_sample/blob/master/1-basicStatistics.R)
